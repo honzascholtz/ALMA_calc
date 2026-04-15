@@ -30,9 +30,9 @@ pip install numpy astropy
 
 The calculator expects a galaxy dictionary with fields such as:
 
-- `NAME`
-- `SFR`
-- `ZRED`
+- `NAME` # Name of the object 
+- `SFR` # SFR - used for calculation of [CII], [OIII] or CO (for CO only if MH2 is not provided)
+- `ZRED` # Redshift
 - `MSorSB`
 - `alpha`
 - `FWHM`
