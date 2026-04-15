@@ -33,20 +33,20 @@ The calculator expects a galaxy dictionary with fields such as:
 - `NAME` # Name of the object 
 - `SFR` # SFR - used for calculation of [CII], [OIII] or CO (for CO only if MH2 is not provided)
 - `ZRED` # Redshift
-- `MSorSB`
-- `alpha`
-- `FWHM`
-- `numchan`
-- `flipper`
-- `ZP`
-- `Cosmo`
-- `PSF_n`
-- `mu`
-- `CO_ladder`
+- `MSorSB` # 
+- `alpha` # Alpha CO
+- `FWHM` # FWHM of the line
+- `numchan` # number of channel over the FWHM
+- `flipper` # flip the spectral windows if you are close to the band edge
+- `ZP` # 
+- `Cosmo` # Cosmology - if None, code uses: FlatLambdaCDM(H0=70, Om0=0.3, Tcmb0=2.725)
+- `PSF_n` # Number of beams to cover the object- 1 for unresolved
+- `mu` # magnification - for field just use 1. 
+- `CO_ladder` # CO ladder to use: 'SF' or 'AGN'
 
 Optional fields include:
 
-- `MH2`
+- `MH2` # supplying MH2 overrides SFR for CO.  
 
 ## Example usage
 
@@ -77,6 +77,12 @@ calc.CII_calc()
 calc.OIII_calc()
 ```
 
+You can overide the [CII] and [OIII] estimate based on SFR by supplying LCII or LOIII variable in calling of the fuction: 
+
+```
+calc.CII_calc(LCII_Lsol = 1e9)
+calc.OIII_calc(LOIII_Lsol = 1e9)
+```
 ## Notes
 
 - The script prints results directly to stdout and does not currently write files or expose a command-line interface.
